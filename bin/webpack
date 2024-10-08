@@ -3,6 +3,9 @@
 ENV['RAILS_ENV'] ||= ENV['RACK_ENV'] || 'development'
 ENV['NODE_ENV']  ||= 'development'
 
+# Fixes deploy error: https://github.com/chatwoot/chatwoot/issues/7626#issuecomment-1681377427
+ENV['NODE_OPTIONS'] = '--openssl-legacy-provider'
+
 require 'pathname'
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile',
                                            Pathname.new(__FILE__).realpath)
